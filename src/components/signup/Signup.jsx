@@ -2,7 +2,7 @@ import styles from "./SignUp.module.css";
 import { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputControl from "../inputControl/InputControl";
 
 export default function SignUp() {
@@ -46,6 +46,41 @@ export default function SignUp() {
             }))
           }
         />
+
+        <InputControl
+          label="Email"
+          placeholder="Ingrese su correo"
+          onChange={(e) =>
+            setValues((prev) => ({
+              ...prev,
+              email: e.target.value,
+            }))
+          }
+        />
+
+        <InputControl
+          label="Password"
+          placeholder="Ingrese su contrasenia"
+          onChange={(e) =>
+            setValues((prev) => ({
+              ...prev,
+              pass: e.target.value,
+            }))
+          }
+        />
+
+        <div className={styles.footer}>
+          <b className={styles.error}>{errorMsg}</b>
+          <button onClick={registro} disabled={submitButtonDisabled}>
+            Guardar
+          </button>
+          <p>
+            Si ya tienes cuenta inicia sesion
+          </p>
+          <span>
+            <Link to='/login'>Login</Link>
+          </span>
+        </div>
       </div>
     </div>
   );

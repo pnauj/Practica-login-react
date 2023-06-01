@@ -3,7 +3,7 @@ import { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import InputControl from "../inputControl/InputControl";
+import InputControl from "../InputControl/InputControl";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -74,11 +74,9 @@ export default function SignUp() {
           <button onClick={registro} disabled={submitButtonDisabled}>
             Guardar
           </button>
-          <p>
-            Si ya tienes cuenta inicia sesion
-          </p>
+          <p>Si ya tienes cuenta inicia sesion</p>
           <span>
-            <Link to='/login'>Login</Link>
+            <Link to="/login">Login</Link>
           </span>
         </div>
       </div>
